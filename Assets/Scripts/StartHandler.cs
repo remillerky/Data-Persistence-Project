@@ -24,6 +24,8 @@ public class StartMenu : MonoBehaviour
     void GetPlayerName()
     {
         nameOfPlayer = NameField.GetComponent<InputField>().text;
+        MainManager.Instance.playerName = nameOfPlayer; // store string to MainManager to persist
+        Debug.Log("Name: " + nameOfPlayer);
     }
 
     void StartNew()

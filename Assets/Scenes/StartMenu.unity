@@ -772,6 +772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NameField: {fileID: 1772485460}
+  startButton: {fileID: 1644402710}
 --- !u!1 &1772485458
 GameObject:
   m_ObjectHideFlags: 0
