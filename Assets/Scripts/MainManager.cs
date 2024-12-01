@@ -6,11 +6,14 @@ using UnityEngine.UI;
 
 public class MainManager : MonoBehaviour
 {
+    public static MainManager Instance;
+    
     public Brick BrickPrefab;
     public int LineCount = 6;
     public Rigidbody Ball;
 
-    public string playerName; // to house the nameOfPlayer
+    public static string PlayerName; // to house the nameOfPlayer
+    public Text HighScore;
     public Text ScoreText;
     public GameObject GameOverText;
     
@@ -18,8 +21,6 @@ public class MainManager : MonoBehaviour
     private int m_Points;
     
     private bool m_GameOver = false;
-
-    public static MainManager Instance;
 
     private void Awake()
     {
@@ -54,6 +55,8 @@ public class MainManager : MonoBehaviour
 
     private void Update()
     {
+        HighScore.text = "Best Score : " + PlayerName + " : " + m_Points.ToString();
+
         if (!m_Started)
         {
             if (Input.GetKeyDown(KeyCode.Space))

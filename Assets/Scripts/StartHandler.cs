@@ -10,7 +10,7 @@ public class StartMenu : MonoBehaviour
     public InputField NameField;
     public Button startButton;
     private string nameOfPlayer;
-
+    
     void Start()
     {
         startButton.onClick.AddListener(StartNew);
@@ -24,13 +24,12 @@ public class StartMenu : MonoBehaviour
     void GetPlayerName()
     {
         nameOfPlayer = NameField.GetComponent<InputField>().text;
-        MainManager.Instance.playerName = nameOfPlayer; // store string to MainManager to persist
         Debug.Log("Name: " + nameOfPlayer);
+        MainManager.PlayerName = nameOfPlayer; // store string to MainManager to persist
     }
 
     void StartNew()
     {
         SceneManager.LoadScene(1);
     }
-
 }
