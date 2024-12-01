@@ -8,13 +8,14 @@ using UnityEngine.UI;
 public class StartMenu : MonoBehaviour
 {
     public InputField NameField;
+    public Button startButton;
     private string nameOfPlayer;
 
     void Start()
     {
-        
+        startButton.onClick.AddListener(StartNew);
     }
-
+    
     void Update()
     {
         GetPlayerName();
@@ -23,7 +24,6 @@ public class StartMenu : MonoBehaviour
     void GetPlayerName()
     {
         nameOfPlayer = NameField.GetComponent<InputField>().text;
-        if(nameOfPlayer != null) { Debug.Log("Player's Name: " + nameOfPlayer); }
     }
 
     void StartNew()
