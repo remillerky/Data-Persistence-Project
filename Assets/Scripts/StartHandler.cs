@@ -7,12 +7,23 @@ using UnityEngine.UI;
 
 public class StartMenu : MonoBehaviour
 {
-    public Text playerName;
+    public InputField NameField;
     private string nameOfPlayer;
 
     void Start()
     {
-        nameOfPlayer = playerName.text.ToString();
+        
+    }
+
+    void Update()
+    {
+        GetPlayerName();
+    }
+
+    void GetPlayerName()
+    {
+        nameOfPlayer = NameField.GetComponent<InputField>().text;
+        if(nameOfPlayer != null) { Debug.Log("Player's Name: " + nameOfPlayer); }
     }
 
     void StartNew()
