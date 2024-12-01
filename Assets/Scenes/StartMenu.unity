@@ -570,7 +570,7 @@ GameObject:
   - component: {fileID: 1169799051}
   - component: {fileID: 1169799050}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: PlayerName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -649,8 +649,9 @@ GameObject:
   - component: {fileID: 1644402712}
   - component: {fileID: 1644402711}
   - component: {fileID: 1644402710}
+  - component: {fileID: 1644402713}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: Start Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -758,6 +759,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1644402708}
   m_CullTransparentMesh: 1
+--- !u!114 &1644402713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644402708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6736cab156f48784184f15dc6934d72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: {fileID: 1169799050}
 --- !u!1 &1772485458
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,7 +785,7 @@ GameObject:
   - component: {fileID: 1772485461}
   - component: {fileID: 1772485460}
   m_Layer: 5
-  m_Name: InputField (Legacy)
+  m_Name: NameField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -784,7 +798,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772485458}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -795,7 +809,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.8794, y: 25.5}
+  m_AnchoredPosition: {x: 0.87939453, y: 25.5}
   m_SizeDelta: {x: 213.9218, y: 31.003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1772485460
