@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.IO;
 
 public class MainManager : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class MainManager : MonoBehaviour
     
     private bool m_Started = false;
     private int m_Points;
+    public int highScore;
     
     private bool m_GameOver = false;
 
@@ -32,6 +34,8 @@ public class MainManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        LoadHighScore();
     }
 
     // Start is called before the first frame update
@@ -55,8 +59,6 @@ public class MainManager : MonoBehaviour
 
     private void Update()
     {
-        HighScore.text = "Best Score : " + PlayerName + " : " + m_Points.ToString();
-
         if (!m_Started)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -89,5 +91,39 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+        if(m_Points > highScore) { highScore = m_Points; }
+        SaveHighScore(PlayerName, highScore);
+    }
+
+    [System.Serializable]
+    class SaveData
+    {
+        public string PlayerName;
+        public int HighestScore;
+    }
+
+    public void SaveHighScore(string PlayerName, int highScore)
+    {
+        SaveData data = new SaveData();
+        data.PlayerName = PlayerName;
+        data.HighestScore = highScore;
+
+        string json = JsonUtility.ToJson(data);
+
+        File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
+    }
+
+    public void LoadHighScore()
+    {
+        string path = Application.persistentDataPath + "/savefile.json";
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            SaveData data = JsonUtility.FromJson<SaveData>(json);
+
+            PlayerName = data.PlayerName;
+            highScore = data.HighestScore;
+        }
+        HighScore.text = "Best Score : " + PlayerName + " : " + highScore.ToString();
     }
 }
